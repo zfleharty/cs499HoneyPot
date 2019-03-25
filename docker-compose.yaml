@@ -5,6 +5,7 @@ services:
                         context: ./database/
                         dockerfile: Dockerfile
                 restart: always
+                container_name: db_container
                 expose:
                         - "3306"
                 deploy:
@@ -13,8 +14,8 @@ services:
                                         - node.role == manager
                 volumes:
                         - type: volume
-                          source: ../499_data/testing
-                          target: var/lib/mysql
+                          source: ../499_data/testing/
+                          target: /var/lib/mysql/
                 environment:
                         MYSQL_ROOT_PASSWORD: h_py_db2019@
                         MYSQL_DATABASE: HPOTDB19
@@ -24,6 +25,11 @@ services:
                 build:
                         context: ./HoneyPy/
                         dockerfile: Dockerfile
+                ports:
+                        - "7:10007" #tcp/udp Echo
+                        - "8:10008" #tcp/udp MOTD
+                        - "2048:2048" #tcp Random
+                        - "4096:4096" #tcp hashCountRandom
                 entrypoint:
                         - python
                         - Honey.py

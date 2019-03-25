@@ -7,8 +7,14 @@ services:
     restart: always
     ports:
       - 3306:3306
+    volumes:
+        - type: volume
+          source: ../../499_data/testing/
+          target: /var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: h_py_db2019@
       MYSQL_DATABASE: HPOTDB19
       MYSQL_USER: zfleharty
       MYSQL_password: hpdb1996
+volumes:
+  db_mount:       

@@ -1,0 +1,33 @@
+version: "3.5"
+services:
+        db:
+                build: 
+                        context: ./database/
+                        dockerfile: Dockerfile
+                restart: always
+                expose:
+                        - "3306"
+                deploy:
+                        placement:
+                                constraints:
+                                        - node.role == manager
+                volumes:
+                        - type: volume
+                          source: ../499_data/testing
+                          target: var/lib/mysql
+                environment:
+                        MYSQL_ROOT_PASSWORD: h_py_db2019@
+                        MYSQL_DATABASE: HPOTDB19
+                        MYSQL_USER: zfleharty
+                        MYSQL_password: hpdb1996
+        honeypy:
+                build:
+                        context: ./HoneyPy/
+                        dockerfile: Dockerfile
+                entrypoint:
+                        - python
+                        - Honey.py
+                        - -d
+volumes:
+  db_data:
+        

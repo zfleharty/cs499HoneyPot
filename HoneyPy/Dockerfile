@@ -8,6 +8,7 @@ RUN apk update && \
     pip install requests && \
     pip install pipreqs && \
     pip install dnslib && \
+    pip install mysql.connector && \
     rm -rf /var/cache/apk/*
 RUN addgroup honey && \
     adduser -s /bin/bash -D -G honey honey

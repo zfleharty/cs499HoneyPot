@@ -21,6 +21,7 @@ RUN mkdir -p /opt && \
 COPY etc/honeypy.cfg /opt/HoneyPy/etc/
 COPY etc/services.cfg /opt/HoneyPy/etc/
 COPY loggers /opt/HoneyPy/loggers
+COPY Honey.py /opt/HoneyPy/
 RUN pipreqs --force /opt/HoneyPy && \
     chown -R honey:honey /opt/HoneyPy
 RUN cd /opt && wget https://github.com/foospidy/clilib/archive/master.zip && \

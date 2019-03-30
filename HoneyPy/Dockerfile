@@ -18,8 +18,7 @@ RUN mkdir -p /opt && \
     cd /opt && mv HoneyPy-master HoneyPy && \
     cd /opt && rm master.zip && \
     chmod +x /opt/HoneyPy/Honey.py
-COPY etc/honeypy.cfg /opt/HoneyPy/etc/
-COPY etc/services.cfg /opt/HoneyPy/etc/
+COPY etc/ /opt/HoneyPy/etc/
 COPY loggers /opt/HoneyPy/loggers
 COPY Honey.py /opt/HoneyPy/
 RUN pipreqs --force /opt/HoneyPy && \

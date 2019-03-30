@@ -36,14 +36,14 @@ plugin      = TelnetUnix
 low_port    = tcp:23
 port        = tcp:10009
 description = Emulate Debian telnet login via tcp.
-enabled     = Yes
+enabled     = no
 
 [Telnet.Windows]
 plugin      = TelnetWindows
 low_port    = tcp:24
 port        = tcp:10010
 description = Emulate Windows telnet login via tcp.
-enabled     = Yes
+enabled     = no
 
 [Random]
 plugin      = Random

@@ -49,11 +49,11 @@ class Echo(protocol.Protocol): ### Set custom protocol class name
 		self.transport.loseConnection()
 	
 	def tx(self, data):
-		log.msg('%s %s TX %s %s %s %s %s %s' % (self.session, self.remote_host.type, self.local_host.host, self.local_host.port, self.factory.name, self.remote_host.host, self.remote_host.port, data.encode("hex")))
+		log.msg('%s %s TX %s %s %s %s e%s %s' % (self.session, self.remote_host.type, self.local_host.host, self.local_host.port, self.factory.name, self.remote_host.host, self.remote_host.port, data))
 		self.transport.write(data)
 
 	def rx(self, data):
-		log.msg('%s %s RX %s %s %s %s %s %s' % (self.session, self.remote_host.type, self.local_host.host, self.local_host.port, self.factory.name, self.remote_host.host, self.remote_host.port, data.encode("hex")))
+		log.msg('%s %s RX %s %s %s %s %s %s' % (self.session, self.remote_host.type, self.local_host.host, self.local_host.port, self.factory.name, self.remote_host.host, self.remote_host.port, data))
 
 class pluginFactory(protocol.Factory):
 	protocol = Echo ### Set protocol to custom protocol class name

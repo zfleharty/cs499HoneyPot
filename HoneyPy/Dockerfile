@@ -37,10 +37,7 @@ USER honey
 WORKDIR /opt/HoneyPy
 EXPOSE 7/tcp
 EXPOSE 8/tcp
-EXPOSE 23/tcp
-EXPOSE 24/tcp
 EXPOSE 2048/tcp
 EXPOSE 4096/tcp
-EXPOSE 9200/tcp
 EXPOSE 7/udp
 EXPOSE 8/udp

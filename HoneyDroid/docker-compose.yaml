@@ -1,0 +1,10 @@
+version: "3.5"
+services:
+  android:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: Android:1.0
+    restart: always
+    container_name: Android2.2
+    

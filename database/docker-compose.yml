@@ -9,7 +9,7 @@ services:
       - 3306:3306
     volumes:
         - type: volume
-          source: ../../499_data/testing/
+          source: ../../499_data/actual/
           target: /var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: h_py_db2019@

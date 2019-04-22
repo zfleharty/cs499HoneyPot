@@ -4,7 +4,12 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: Android:1.0
+    image: android:1.0
     restart: always
     container_name: Android2.2
+    
+  testing_container:
+    image: ubuntu:latest
+    container_name: testing
+    
     

@@ -7,11 +7,15 @@ services:
     image: android:1.0
     restart: always
     container_name: Android2.2
+    networks:
+      bridged_Network:
+        ipv4_address: 172.18.0.5
     entrypoint:
       - honeyd
+      - -d
       - -f
       - honeyd.conf
-      - start
+      - 172.18.0.0/16
       
   testing_container:
     build:
@@ -19,3 +23,15 @@ services:
       dockerfile: Dockerfile_testing
     image: testing_image
     container_name: testing_container
+    networks:
+      bridged_Network:
+        ipv4_address: 172.18.0.4
+    command: tail -F anything
+networks:
+  bridged_Network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16
+    external: false

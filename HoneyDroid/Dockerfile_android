@@ -24,7 +24,7 @@ RUN ./autogen.sh && ./configure && make && make install
 WORKDIR /home
 COPY ./honeyd.conf ./
 
-Run farpd 192.168.1.77 -i eth0
+#Run farpd 192.168.1.77 -i eth0
 #ENTRYPOINT ["honeyd","-f","honeyd.conf","start"]
 
 

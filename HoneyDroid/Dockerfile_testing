@@ -1,0 +1,6 @@
+FROM ubuntu:latest
+MAINTAINER Zachary Fleharty
+
+RUN apt-get update
+RUN apt-get install -y nmap
+RUN apt-get install -y curl

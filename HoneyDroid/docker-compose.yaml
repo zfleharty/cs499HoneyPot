@@ -3,13 +3,19 @@ services:
   android:
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_android
     image: android:1.0
     restart: always
     container_name: Android2.2
-    
+    entrypoint:
+      - honeyd
+      - -f
+      - honeyd.conf
+      - start
+      
   testing_container:
-    image: ubuntu:latest
-    container_name: testing
-    
-    
+    build:
+      context: ./
+      dockerfile: Dockerfile_testing
+    image: testing_image
+    container_name: testing_container
